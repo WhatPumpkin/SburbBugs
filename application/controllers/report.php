@@ -12,7 +12,7 @@ class Report extends CI_Controller {
             "ip" => $report->ip,
             "referrer" => $report->referrer,
             "canvas" => "data:image/png;base64,".$report->canvas,
-            "debugger" => $this->_json_dump($report->debugger),
+            "debugger" => $this->_json_dump(json_decode($report->debugger)),
             "report" => $report->report
         );
         $this->load->view("report",$data);
