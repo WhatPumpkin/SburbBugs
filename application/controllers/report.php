@@ -12,7 +12,14 @@ class Report extends CI_Controller {
         $report->canvas = $this->input->post("canvas");
         $report->debugger = $this->input->post("debugger");
         $report->report = $this->input->post("report");
-        print(json_encode(array("success"=>$report->save())));
+        $success = $report->save();
+        
+        $out = array();
+        $out["success"] = $success;
+        if(!$success) {
+            $out["errors"] = $report->error->all;
+        }
+        print(json_encode($out));
     }
 }
 
