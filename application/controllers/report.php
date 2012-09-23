@@ -8,7 +8,7 @@ class Report extends CI_Controller {
         
         $report = new BugReport();
         $report->ip = $this->input->ip_address();
-        $report->referrer = $this->agent->referrer();
+        $report->referrer = $this->input->post("url");
         $report->canvas = $this->input->post("canvas");
         $report->debugger = $this->input->post("debugger");
         $report->report = $this->input->post("report");
