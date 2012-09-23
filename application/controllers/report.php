@@ -4,7 +4,6 @@ class Report extends CI_Controller {
 
     public function version1() {
         header("Access-Control-Allow-Origin: *");
-        header("Access-Control-Allow-Headers: *");
         $this->load->library('user_agent');
         
         $report = new BugReport();
@@ -13,7 +12,7 @@ class Report extends CI_Controller {
         $report->canvas = $this->input->post("canvas");
         $report->debugger = $this->input->post("debugger");
         $report->report = $this->input->post("report");
-        $report->save();
+        print(json_encode(array("success"=>$report->save())));
     }
 }
 
