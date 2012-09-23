@@ -2,7 +2,7 @@
 
 class Report extends CI_Controller {
 
-    public function view($id) {
+    public function view($id = 0) {
         $report = new BugReport($id);
         if(!$report->exists()) {
             redirect("/report/list");
