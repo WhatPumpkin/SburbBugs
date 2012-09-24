@@ -21,9 +21,9 @@
                 <tr>
                     <td><?php echo $report->id; ?></td>
                     <td><?php echo $report->ip; ?></td>
-                    <td><?php echo htmlspecialchars($report->referrer); ?></td>
                     <td><?php echo htmlspecialchars($report->browser); ?></td>
                     <td><?php echo htmlspecialchars($report->os); ?></td>
+                    <td><?php echo htmlspecialchars($report->referrer); ?></td>
                     <td><?php echo htmlspecialchars($report->report); ?></td>
                     <td><a href="/report/view/<?php echo $report->id; ?>">View</a></td>
                 </tr>
