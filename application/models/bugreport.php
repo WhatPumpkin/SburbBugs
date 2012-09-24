@@ -16,6 +16,16 @@ class BugReport extends DataMapper
             'rules' => array('trim','valid_ip','required')
         ),
         array(
+            'field' => "browser",
+            'label' => 'Browser',
+            'rules' => array('trim','required')
+        ),
+        array(
+            'field' => "os",
+            'label' => 'OS',
+            'rules' => array('trim','required')
+        ),
+        array(
             'field' => "referrer",
             'label' => 'Referrer',
             'rules' => array('trim','required')

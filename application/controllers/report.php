@@ -23,6 +23,8 @@ class Report extends CI_Controller {
         $data = array(
             "id" => $report->id,
             "ip" => $report->ip,
+            "browser" => $report->browser,
+            "os" => $report->os,
             "referrer" => $report->referrer,
             "canvas" => "data:image/png;base64,".$report->canvas,
             "debugger" => $this->_json_dump(json_decode($report->debugger)),
@@ -36,8 +38,20 @@ class Report extends CI_Controller {
         header("Access-Control-Allow-Origin: *");
         $this->load->library('user_agent');
         
+        if ($this->agent->is_browser()) {
+            $agent = $this->agent->browser().' '.$this->agent->version();
+        } elseif ($this->agent->is_robot()) {
+            $agent = $this->agent->robot();
+        } elseif ($this->agent->is_mobile()) {
+            $agent = $this->agent->mobile();
+        } else {
+            $agent = 'Unidentified User Agent';
+        }
+        
         $report = new BugReport();
         $report->ip = $this->input->ip_address();
+        $report->browser = $agent;
+        $report->os = $this->agent->platform();
         $report->referrer = $this->input->post("url");
         $report->canvas = $this->input->post("canvas");
         $report->debugger = $this->input->post("debugger");

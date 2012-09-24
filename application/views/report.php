@@ -5,7 +5,7 @@
         <style>.json_string:before, .json_string:after { content: '"'; }</style>
     </head>
     <body>
-        <h1><?php echo $ip; ?> at <?php echo htmlspecialchars($referrer); ?></h1>
+        <h1><?php echo $ip; ?> at <?php echo htmlspecialchars($referrer); ?> with <?php echo htmlspecialchars($browser); ?> on <?php echo htmlspecialchars($os); ?></h1>
         <img src="<?php echo $canvas; ?>"><br>
         <hr>
         <p><?php echo htmlspecialchars($report); ?></p>

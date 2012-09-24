@@ -13,6 +13,8 @@ DROP TABLE IF EXISTS `sburb`.`bugreports` ;
 CREATE  TABLE IF NOT EXISTS `sburb`.`bugreports` (
   `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT ,
   `ip` CHAR(45) NOT NULL ,
+  `browser` VARCHAR(255) NOT NULL ,
+  `os` VARCHAR(255) NOT NULL ,
   `referrer` VARCHAR(255) NOT NULL ,
   `canvas` MEDIUMTEXT NOT NULL ,
   `debugger` MEDIUMTEXT NOT NULL ,
