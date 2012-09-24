@@ -59,7 +59,7 @@ class Report extends CI_Controller {
         if(is_array($v) || is_object($v)) {
             $output .= $this->_json_dump($v);
         } else if(is_string($v)) {
-            $output .= "<span class='json_string'>$v</span>";
+            $output .= "<span class='json_string'>".htmlspecialchars($v)."</span>";
         } else if(is_bool($v)) {
             $output .= "<span class='json_bool'>".($v?"true":"false")."</span>";
         } else if(is_null($v)) {

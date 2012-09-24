@@ -5,10 +5,10 @@
         <style>.json_string:before, .json_string:after { content: '"'; }</style>
     </head>
     <body>
-        <h1><?php echo $ip; ?> at <?php echo $referrer; ?></h1>
+        <h1><?php echo $ip; ?> at <?php echo htmlspecialchars($referrer); ?></h1>
         <img src="<?php echo $canvas; ?>"><br>
         <hr>
-        <p><?php echo $report; ?></p>
+        <p><?php echo htmlspecialchars($report); ?></p>
         <hr>
         <p><pre><?php echo htmlspecialchars($save); ?></pre></p>
         <hr>

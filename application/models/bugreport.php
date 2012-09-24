@@ -18,7 +18,7 @@ class BugReport extends DataMapper
         array(
             'field' => "referrer",
             'label' => 'Referrer',
-            'rules' => array('trim','prep_url','required')
+            'rules' => array('trim','required')
         ),
         array(
             'field' => "canvas",
@@ -28,17 +28,17 @@ class BugReport extends DataMapper
         array(
             'field' => "debugger",
             'label' => 'Debugger JSON',
-            'rules' => array('trim','xss_clean','required')
+            'rules' => array('trim','required')
         ),
         array(
             'field' => "save",
             'label' => 'Save State XML',
-            'rules' => array('trim','xss_clean','required')
+            'rules' => array('trim','required')
         ),
         array(
             'field' => "report",
             'label' => 'User Report',
-            'rules' => array('trim','xss_clean')
+            'rules' => array('trim')
         ),
     );
 
