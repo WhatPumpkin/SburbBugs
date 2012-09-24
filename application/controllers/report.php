@@ -36,9 +36,6 @@ class Report extends CI_Controller {
     
     public function version1() {
         header("Access-Control-Allow-Origin: *");
-        print '{"success":false}';
-        return;
-        
         $this->load->library('user_agent');
         
         if ($this->agent->is_browser()) {
