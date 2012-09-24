@@ -3,10 +3,10 @@
 class Report extends CI_Controller {
 
     public function index() {
-        redirect("/report/list");
+        redirect("/report/listing");
     }
     
-    public function list() {
+    public function listing() {
         $reports = new BugReport();
         $data = array(
             "reports" => $reports->order_by('id','DESC')->get_iterated()
@@ -17,7 +17,7 @@ class Report extends CI_Controller {
     public function view($id = 0) {
         $report = new BugReport($id);
         if(!$report->exists()) {
-            redirect("/report/list");
+            redirect("/report/listing");
         }
         
         $data = array(
