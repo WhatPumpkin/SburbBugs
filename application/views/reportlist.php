@@ -15,7 +15,7 @@
                 </tr>
             <thead>
             <tbody>
-<?php foreach($reports as $r) { ?>
+<?php foreach($reports as $report) { ?>
                 <tr>
                     <td><?php echo $report->id; ?></td>
                     <td><?php echo $report->ip; ?></td>
