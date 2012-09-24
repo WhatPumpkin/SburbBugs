@@ -6,10 +6,32 @@ class Report extends CI_Controller {
         redirect("/report/listing");
     }
     
-    public function listing() {
+    public function stats() {
+        $fields = array("ip","browser","os","referrer");
+        $data = array();
         $reports = new BugReport();
+        $data["total"] = $reports->count();
+        foreach($fields as $f) {
+            $data[$f] = array();
+            $values = $reports->select($f)->distinct()->order_by($f,"ASC")->get_iterated();
+            foreach($values as $v) {
+                $name = $v->{$f};
+                $data[$f][$name] = $reports->where($f, $name)->count();
+            }
+        }
+        $this->load->view("reportstats",$data);
+    }
+    
+    public function listing() {
+        $fields = array("ip","browser","os","referrer");
+        $reports = new BugReport();
+        $reports->select('id,ip,browser,os,referrer,report')->order_by('id','DESC');
+        foreach($fields as $f) {
+            if($this->input->get($f))
+                $reports->where($f,$this->input->get($f));
+        }
         $data = array(
-            "reports" => $reports->select('id,ip,browser,os,referrer,report')->order_by('id','DESC')->get_iterated()
+            "reports" => $reports->get_iterated()
         );
         $this->load->view("reportlist",$data);
     }
