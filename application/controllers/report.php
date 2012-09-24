@@ -9,7 +9,7 @@ class Report extends CI_Controller {
     public function listing() {
         $reports = new BugReport();
         $data = array(
-            "reports" => $reports->order_by('id','DESC')->get_iterated()
+            "reports" => $reports->select('id,ip,browser,os,referrer,report')->order_by('id','DESC')->get_iterated()
         );
         $this->load->view("reportlist",$data);
     }
