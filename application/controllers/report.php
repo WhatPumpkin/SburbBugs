@@ -2,6 +2,18 @@
 
 class Report extends CI_Controller {
 
+    public function index() {
+        redirect("/report/list");
+    }
+    
+    public function list() {
+        $reports = new BugReport();
+        $data = array(
+            "reports" => $reports->order_by('id','DESC')->get_iterated()
+        );
+        $this->load->view("reportlist",$data);
+    }
+    
     public function view($id = 0) {
         $report = new BugReport($id);
         if(!$report->exists()) {
@@ -9,6 +21,7 @@ class Report extends CI_Controller {
         }
         
         $data = array(
+            "id" => $report->id,
             "ip" => $report->ip,
             "referrer" => $report->referrer,
             "canvas" => "data:image/png;base64,".$report->canvas,
