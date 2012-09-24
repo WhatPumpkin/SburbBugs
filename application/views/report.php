@@ -10,7 +10,7 @@
         <hr>
         <p><?php echo $report; ?></p>
         <hr>
-        <p><?php echo $save; ?></p>
+        <p><pre><?php echo htmlspecialchars($save); ?></pre></p>
         <hr>
         <p><?php echo $debugger; ?></p>
     </body>
