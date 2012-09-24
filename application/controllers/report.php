@@ -26,6 +26,7 @@ class Report extends CI_Controller {
             "referrer" => $report->referrer,
             "canvas" => "data:image/png;base64,".$report->canvas,
             "debugger" => $this->_json_dump(json_decode($report->debugger)),
+            "save" => $report->save,
             "report" => $report->report
         );
         $this->load->view("report",$data);
@@ -41,6 +42,7 @@ class Report extends CI_Controller {
         $report->canvas = $this->input->post("canvas");
         $report->debugger = $this->input->post("debugger");
         $report->report = $this->input->post("report");
+        $report->save = $this->input->post("save");
         $success = $report->save();
         
         $out = array();

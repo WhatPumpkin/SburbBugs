@@ -10,6 +10,8 @@
         <hr>
         <p><?php echo $report; ?></p>
         <hr>
+        <p><?php echo $save; ?></p>
+        <hr>
         <p><?php echo $debugger; ?></p>
     </body>
 </html>

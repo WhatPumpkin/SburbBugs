@@ -31,6 +31,11 @@ class BugReport extends DataMapper
             'rules' => array('trim','xss_clean','required')
         ),
         array(
+            'field' => "save",
+            'label' => 'Save State XML',
+            'rules' => array('trim','xss_clean','required')
+        ),
+        array(
             'field' => "report",
             'label' => 'User Report',
             'rules' => array('trim','xss_clean')

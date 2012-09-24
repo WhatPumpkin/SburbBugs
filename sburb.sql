@@ -16,6 +16,7 @@ CREATE  TABLE IF NOT EXISTS `sburb`.`bugreports` (
   `referrer` VARCHAR(255) NOT NULL ,
   `canvas` MEDIUMTEXT NOT NULL ,
   `debugger` MEDIUMTEXT NOT NULL ,
+  `save` MEDIUMTEXT NOT NULL ,
   `report` TEXT NOT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
